@@ -1,60 +1,62 @@
-import React from 'react';
+import React from "react";
 
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import SelectedBeast from "./SelectedBeast";
 
 class HornedBeast extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
             likes: 0,
+            PopUp: false,
         };
     }
 
     favorite = () => {
         this.setState({ likes: this.state.likes + 1 });
+        this.Open();
+    };
+
+    Open = () => {
+        this.setState({ PopUp: true });
+    };
+
+    Close = () => {
+        this.setState({ PopUp: false });
     };
 
     render() {
-        return (
-
-
-            <
+        return ( <
             div >
             <
             Col >
             <
             Card style = {
-                { width: '18rem' }
-            } >
+                { width: "18rem" } }
+            bg = "dark"
+            text = "light" >
             <
             Card.Img variant = "top"
-            onClick = { this.favorite }
+
             src = { this.props.image_url }
-            / > <
-            Card.Body >
-
-
+            />{" "} <
+            Card.Body onClick = { this.favorite } >
             <
-            Card.Title > Card Title < /Card.Title>
-
-            <
-            Card.Text >
-
-            ❤️ = { this.state.likes } <
-            /Card.Text>
-
-            <
-            Card.Text > { this.props.description } < /
-            Card.Text > < /
-            Card.Body > <
-            /Card> < /
-            Col >
-
-            <
+            Card.Title > { this.props.title } < /Card.Title>{" "} <
+            Card.Text > ❤️ = { this.state.likes } < /Card.Text>{" "} <
+            Card.Text > { this.props.description } < /Card.Text>{" "} <
+            /Card.Body>{" "} <
+            /Card>{" "} <
+            SelectedBeast PopUp = { this.state.PopUp }
+            close = { this.Close }
+            title = { this.props.title }
+            image_url = { this.props.image_url }
+            description = { this.props.description }
+            />{" "} <
+            /Col>{" "} <
             /div>
-        )
+        );
     }
 }
 
