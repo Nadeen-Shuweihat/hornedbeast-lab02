@@ -1,7 +1,7 @@
 import React from "react";
 
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
+import { Card, Col } from "react-bootstrap";
+
 import SelectedBeast from "./SelectedBeast";
 
 class HornedBeast extends React.Component {
@@ -38,7 +38,6 @@ class HornedBeast extends React.Component {
             text = "light" >
             <
             Card.Img variant = "top"
-
             src = { this.props.image_url }
             />{" "} <
             Card.Body onClick = { this.favorite } >
