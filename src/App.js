@@ -13,14 +13,23 @@ class App extends React.Component {
         };
     }
 
+    FilterImgs = (newHorns) => {
+        this.setState({
+            DataRow: newHorns,
+        });
+    };
+
     render() {
         return ( <
             div className = "home" >
             <
             Header / >
             <
-            Main HornsData = { this.state.DataRow }
-            /> <Footer / >
+            Main OriginalHorn = { DataRow }
+            HornsData = { this.state.DataRow }
+            FilterImgs = { this.FilterImgs }
+            />{" "} <
+            Footer / >
             <
             /div>
         );
